@@ -13,7 +13,7 @@ jobs:
           command: |
             python -m venv venv
             . venv/bin/activate
-            pip install -r requirements.txt
+            pip install -r app/requirements.txt
 
       - run:
           name: Lint code
@@ -25,12 +25,12 @@ jobs:
           name: Run tests
           command: |
             . venv/bin/activate
-            pytest -v tests.py
+            pytest -v app/tests.py
 
       - run:
           name: Pack repository as tar.xz
           command: |
-            tar -cJf repo-archive.tar.xz .
+            tar -cJf calc-app.tar.xz app
 
 workflows:
   build_test_and_pack:
