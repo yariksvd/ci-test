@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Pack repository as tar.xz
           command: |
-            tar -cJf calc-app.tar.xz app
+            tar -cJf /calc-app-${CIRCLE_SHA1:0:7}.tar.xz app
       - store_artifacts:
           path: ./calc-app-${CIRCLE_SHA1:0:7}.tar.xz
 
