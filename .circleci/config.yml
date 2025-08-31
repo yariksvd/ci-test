@@ -33,7 +33,7 @@ jobs:
             tar -cJf calc-app.tar.xz app
       - store_artifacts:
           path: ./calc-app.tar.xz
-          destination: calc-app-${CIRCLE_SHA1:0:7}.tar.xz
+          destination: calc-app.tar.xz
 
 workflows:
   build_test_and_pack:
