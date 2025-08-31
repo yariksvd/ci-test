@@ -25,7 +25,7 @@ jobs:
           name: Run tests
           command: |
             . venv/bin/activate
-            pytest -v
+            pytest -v tests.py
 
       - run:
           name: Pack repository as tar.xz
