@@ -31,6 +31,8 @@ jobs:
           name: Pack repository as tar.xz
           command: |
             tar -cJf calc-app.tar.xz app
+      - store_artifacts:
+          path: ./calc-app.tar.xz
 
 workflows:
   build_test_and_pack:
