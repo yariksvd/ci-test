@@ -25,7 +25,7 @@ jobs:
           name: Run tests
           command: |
             . venv/bin/activate
-            pytest -v --cov=calculator
+            pytest -v
 
       - run:
           name: Pack repository as tar.xz
