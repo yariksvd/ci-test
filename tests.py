@@ -39,7 +39,7 @@ class TestCalcFunctions(unittest.TestCase):
         self.assertEqual(divide(0, 5), 0.0)
 
     def test_divide_by_zero(self):
-        """Test that divide function raises AssertionError when dividing by zero"""
+        """Test divide function raises AssertionError when dividing by zero"""
         with self.assertRaises(AssertionError):
             divide(10, 0)
         with self.assertRaises(AssertionError):
