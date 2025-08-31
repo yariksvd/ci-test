@@ -1,0 +1,38 @@
+version: 2.1
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/python:3.11
+    working_directory: ~/repo
+    steps:
+      - checkout
+
+      - run:
+          name: Install dependencies
+          command: |
+            python -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+
+      - run:
+          name: Lint code
+          command: |
+            . venv/bin/activate
+            flake8 --exclude=venv* --statistics
+
+      - run:
+          name: Run tests
+          command: |
+            . venv/bin/activate
+            pytest -v --cov=calculator
+
+      - run:
+          name: Pack repository as tar.xz
+          command: |
+            tar -cJf repo-archive.tar.xz .
+
+workflows:
+  build_test_and_pack:
+    jobs:
+      - build-and-test
